@@ -1,0 +1,71 @@
+﻿@model Shop.Models.RegisterModel
+
+@{ ViewBag.Title = "Регистрация"; }
+
+
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+@Html.AntiForgeryToken()
+<h4>Создание новой учетной записи</h4>
+    @Html.ValidationSummary(true, "", new { @class = "validation-summary-errors" })
+<div class="form-group">
+    @Html.LabelFor(m => m.Email, "Email", new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Password, "Пароль", new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Password)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.ConfirmPassword, "Подтвердите пароль", new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.LastName, "Фамилия", new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.LastName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.FirstName, "Имя", new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Html.TextBoxFor(m => m.FirstName, "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.FirstName)
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.MiddleName, "Отчество", new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.MiddleName)
+    </div>
+</div>
+@Html.CheckBox("check", false, new { @class = "col-md-2 control-label" })
+<label for="check">Я подтверждаю согласие на обработку персональных данных в соотвествии с федеральным законом <a href="http://www.consultant.ru/cons/cgi/online.cgi?req=doc&base=LAW&n=286959&fld=134&dst=1000000001,0&rnd=0.21050761970264387#019597009181987213">№152-ФЗ «О персональных данных»</a></label>
+<div class="form-group mt-25">
+    <div class="button button-center">
+        <input type="submit" value="Зарегистрироваться" class="submit" />
+    </div>
+    <div class="link">
+        @Html.ActionLink("Уже есть аккаунт?", "Login", "Account")
+    </div>
+</div>}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

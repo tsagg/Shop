@@ -1,0 +1,61 @@
+﻿@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
+@using System.Web;
+@using Shop.Models;
+
+@{ string text;
+    bool isAuthorized = false;
+    string id = System.Web.HttpContext.Current.User.Identity.GetUserId();
+
+    if (id != null)
+    {
+        ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+        text = user.LastName + " " + user.FirstName + " " + user.MiddleName;
+        isAuthorized = true;
+    }
+    else
+    {
+        text = "Добро пожаловать в интернет-магазин";
+    } }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="~/Content/File.css">
+</head>
+<body>
+    <div class="body-content">
+        <header class="header">
+            @{ if (isAuthorized)
+                {
+    <div class="user-wrapper">
+
+        <h1>@text</h1>
+    </div>
+                    <div class="button header-logout">@Html.ActionLink("Выйти", "Logout", "Account")</div> }
+                else
+                {
+    <h1>@text</h1> } }
+
+        </header>
+
+        <div class="container">
+            <div class="page-center">
+                @RenderBody()
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; @DateTime.Now.Year - Интернет-магазин</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/table.js"></script>
+    <script src="~/Scripts/scripts.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
