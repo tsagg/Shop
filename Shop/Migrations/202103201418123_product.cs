@@ -3,8 +3,14 @@
     using System;
     using System.Data.Entity.Migrations;
     
+    /// <summary>
+    /// Миграция
+    /// </summary>
     public partial class product : DbMigration
     {
+        /// <summary>
+        /// Создание
+        /// </summary>
         public override void Up()
         {
             CreateTable(
@@ -21,6 +27,9 @@
             
         }
         
+        /// <summary>
+        /// Удаление
+        /// </summary>
         public override void Down()
         {
             DropTable("dbo.Products");

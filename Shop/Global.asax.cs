@@ -8,8 +8,14 @@ using System.Web.Routing;
 
 namespace Shop
 {
+    /// <summary>
+    /// Старт приложения
+    /// </summary>
     public class MvcApplication : System.Web.HttpApplication
     {
+        /// <summary>
+        /// Запуск
+        /// </summary>
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();

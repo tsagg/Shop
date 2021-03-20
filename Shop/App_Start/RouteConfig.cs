@@ -7,8 +7,15 @@ using System.Web.Routing;
 
 namespace Shop
 {
+    /// <summary>
+    /// Конфиг роутов
+    /// </summary>
     public class RouteConfig
     {
+        /// <summary>
+        /// Регистрация роутов
+        /// </summary>
+        /// <param name="routes"></param>
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");

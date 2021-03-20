@@ -3,8 +3,14 @@
     using System;
     using System.Data.Entity.Migrations;
     
+    /// <summary>
+    /// Миграция
+    /// </summary>
     public partial class order : DbMigration
     {
+        /// <summary>
+        /// Создание
+        /// </summary>
         public override void Up()
         {
             CreateTable(
@@ -24,6 +30,9 @@
             
         }
         
+        /// <summary>
+        /// Удаление
+        /// </summary>
         public override void Down()
         {
             DropForeignKey("dbo.Orders", "UserId", "dbo.AspNetUsers");

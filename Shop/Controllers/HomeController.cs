@@ -6,8 +6,15 @@ using System.Linq;
 
 namespace Shop.Controllers
 {
+    /// <summary>
+    /// Контроллер для работы с главными страницами сайта
+    /// </summary>
     public class HomeController : Controller
     {
+        /// <summary>
+        /// Главная страница
+        /// </summary>
+        /// <returns>Представление</returns>
         public ActionResult Index()
         {
             if (System.Web.HttpContext.Current.User.Identity.GetUserId() != null)
@@ -16,15 +23,24 @@ namespace Shop.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Страница аккаунта
+        /// </summary>
+        /// <returns>Представление</returns>
         [Authorize]
         public ActionResult Account()
         {
             return View();
         }
 
+        /// <summary>
+        /// Страница каталога товаров
+        /// </summary>
+        /// <returns>Представление</returns>
         [Authorize]
         public ActionResult Shop()
         {
+            //Формируем список товаров
             ApplicationContext db = new ApplicationContext();
             List<Product> products = db.Products.ToList();
             return View(products);

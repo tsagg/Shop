@@ -8,8 +8,15 @@ using Shop.Models;
 
 namespace AspNetIdentityApp
 {
+    /// <summary>
+    /// Запуск приложения
+    /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// Конфигурация
+        /// </summary>
+        /// <param name="app">Owin app builder</param>
         public void Configuration(IAppBuilder app)
         {
             // настраиваем контекст и менеджер
