@@ -42,4 +42,18 @@ namespace Shop.Models
         public string LastName { get; set; }
         public string MiddleName { get; set; }
     }
+
+    public class CartIndexViewModel
+    {
+        public Cart Cart { get; set; }
+        public string ReturnUrl { get; set; }
+    }
+
+    public class OrderModel
+    {
+        [Required(ErrorMessage = "Введите номер, по которому наш менеджер свяжется с вами.")]
+        [Phone]
+        public string UserPhone { get; set; }
+        public string UserComment { get; set; }
+    }
 }

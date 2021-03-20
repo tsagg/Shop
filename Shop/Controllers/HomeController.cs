@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNet.Identity;
 using System.Web.Mvc;
+using Shop.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Shop.Controllers
 {
@@ -17,6 +20,14 @@ namespace Shop.Controllers
         public ActionResult Account()
         {
             return View();
+        }
+
+        [Authorize]
+        public ActionResult Shop()
+        {
+            ApplicationContext db = new ApplicationContext();
+            List<Product> products = db.Products.ToList();
+            return View(products);
         }
     }
 }

@@ -1,0 +1,65 @@
+﻿@using Shop.Models
+@model List<Product>
+
+@{ ViewBag.Title = "Товары"; }
+
+<h2>Список товаров</h2>
+
+<div id="content-table">
+    <div class="button-wrapper">
+        <input class="fuzzy-search input" autocomplete="off" placeholder="Поиск по товарам" />
+        <div class="button button-sm button-right">
+            @Html.ActionLink("Корзина", "Cart", "Cart")
+        </div>
+    </div>
+    <a class="page page-btn" href="#" data-i="1" data-page="5"></a>
+    <div class="table-wrapper">
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Артикул</th>
+                    <th>Описание</th>
+                    <th>Цена</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody class="list">
+                @foreach (Product item in Model)
+                {
+    <tr>
+        <td class="search-value">
+            @item.Name
+        </td>
+        <td class="search-value">
+            @item.Code
+        </td>
+        <td>
+            @item.Description
+        </td>
+        <td>
+            @item.Price
+        </td>
+        <td>
+            <div class="buttons-row">
+                <div class="button button-sm">
+                    @Html.ActionLink("+", "AddToCart", "Cart", new { id = item.Id }, new { title = "Добавить в корзину" })
+                </div>
+            </div>
+        </td>
+    </tr>}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="pagination-wrapper">
+        <div class="page-nav-wrapper">
+            <input type="tel" class="page-nav" autocomplete="off" placeholder="1" />
+            <span>Введите страницу</span>
+        </div>
+
+        <div class="pagination"></div>
+    </div>
+</div>

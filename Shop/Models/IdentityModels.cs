@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
+using System.Collections.Generic;
 using System.Data.Entity;
 
 namespace Shop.Models
@@ -11,11 +12,17 @@ namespace Shop.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string MiddleName { get; set; }
+        public ICollection<Order> Orders { get; set; }
+        public ApplicationUser()
+        {
+            Orders = new List<Order>();
+        }
     }
 
     public class ApplicationContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
         public ApplicationContext() : base("DefaultConnection") { }
 
         public static ApplicationContext Create()

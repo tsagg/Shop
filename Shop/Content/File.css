@@ -514,6 +514,20 @@ table {
     margin-right: 10px;
 }
 
+.button-right {
+    margin-left: auto;
+    border: 0;
+}
+
+.button-right a {
+    max-width: none;
+}
+
+.button-wrapper {
+    display: flex;
+    align-items: center;
+}
+
 @media screen and (max-width: 500px) {
     .buttons-row .button-icon {
         width: 25px;

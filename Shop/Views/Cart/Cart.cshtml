@@ -1,0 +1,66 @@
+﻿@using Shop.Models
+@model CartIndexViewModel
+
+@{ ViewBag.Title = "Корзина"; }
+
+<h2>Список товаров</h2>
+
+<div id="content-table">
+    <div class="button-wrapper">
+        <div class="button button-sm button-right">
+            @Html.ActionLink("Оформить заказ", "MakeOrder", "Cart")
+        </div>
+    </div>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Кол-во</th>
+                    <th>Цена</th>
+                    <th>Общая цена</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody class="list">
+                @foreach (var line in Model.Cart.Lines)
+                {
+    <tr>
+        <td class="search-value">
+            @line.Quantity
+        </td>
+        <td class="search-value">
+            @line.Product.Name
+        </td>
+        <td>
+            @line.Product.Price.ToString("# руб")
+        </td>
+        <td>
+            @((line.Quantity * line.Product.Price).ToString("# руб"))
+        </td>
+        <td>
+            <div class="buttons-row">
+                <div class="button button-sm">
+                    @Html.ActionLink("-", "RemoveFromCart", "Cart", new { id = line.Product.Id }, new { title = "Добавить в корзину" })
+                </div>
+            </div>
+        </td>
+    </tr>
+}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="text-right">Итого:</td>
+                    <td class="text-right">
+                        @Model.Cart.ComputeTotalValue().ToString("# руб")
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<div class="link">
+    @Html.ActionLink("Назад", "Shop", "Home")
+</div>
