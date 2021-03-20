@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
+using System.Data.Entity;
 
 namespace Shop.Models
 {
@@ -14,6 +15,7 @@ namespace Shop.Models
 
     public class ApplicationContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Product> Products { get; set; }
         public ApplicationContext() : base("DefaultConnection") { }
 
         public static ApplicationContext Create()

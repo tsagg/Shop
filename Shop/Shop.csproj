@@ -160,8 +160,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103201246329_InitialCreate.cs" />
+    <Compile Include="Migrations\202103201246329_InitialCreate.designer.cs">
+      <DependentUpon>202103201246329_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103201418123_product.cs" />
+    <Compile Include="Migrations\202103201418123_product.designer.cs">
+      <DependentUpon>202103201418123_product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Models.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -193,6 +203,14 @@
     <Content Include="Views\Account\Delete.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Home\Account.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202103201246329_InitialCreate.resx">
+      <DependentUpon>202103201246329_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103201418123_product.resx">
+      <DependentUpon>202103201418123_product.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

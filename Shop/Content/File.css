@@ -551,3 +551,25 @@ table {
         max-width: calc(100vw - 30px);
     }
 }
+
+#pjAcceptCookieBar .pjAcceptCookieBarBtn,
+#pjAcceptCookieBar .pjAcceptCookieBarBtn:after { -webkit-transition: all .5s ease-in-out; -moz-transition: all .5s ease-in-out; -ms-transition: all .5s ease-in-out; -o-transition: all .5s ease-in-out; transition: all .5s ease-in-out; }
+#pjAcceptCookieBar { position: fixed; bottom: 0; left: 0; z-index: 9999; overflow-x: hidden; overflow-y: auto; width: 100%; max-height: 100%; padding: 10px 0; background: var(--color); opacity: 1; font-family: 'Open Sans', sans-serif; text-align: center;}
+#pjAcceptCookieBar * { padding: 0; margin: 0; outline: 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+#pjAcceptCookieBar .pjAcceptCookieBarShell { width: 90%; margin: 0 auto; }
+#pjAcceptCookieBar a[href^=tel] { color: inherit; }
+#pjAcceptCookieBar a:focus,
+#pjAcceptCookieBar button:focus { outline: unset; outline: none; }
+#pjAcceptCookieBar p { font-size: 14px; line-height: 1.4; color: #fff; font-weight: 400; }
+#pjAcceptCookieBar .pjAcceptCookieBarActions { padding-top: 10px; }
+#pjAcceptCookieBar .pjAcceptCookieBarBtn { position: relative; display: inline-block; height: 20px; padding: 0 30px; border: 0; background: #4285f4; opacity: 1; font-size: 14px; line-height: 14px; color: #fff; text-decoration: none; vertical-align: middle; cursor: pointer; border-radius: 0; -webkit-appearance: none; -webkit-border-radius: 0; -webkit-transform: translateZ(0); transform: translateZ(0); -webkit-backface-visibility: hidden; backface-visibility: hidden; -moz-osx-font-smoothing: grayscale; }
+#pjAcceptCookieBar .pjAcceptCookieBarBtn:hover,
+#pjAcceptCookieBar .pjAcceptCookieBarBtn:focus { text-decoration: none; }
+#pjAcceptCookieBar .pjAcceptCookieBarBtn:after { position: absolute; top: 0; right: 52%; bottom: 0; left: 52%; z-index: -1; border-bottom: 4px solid #14428d; background: rgba(20, 66, 141, 1); content: ''; }
+#pjAcceptCookieBar .pjAcceptCookieBarBtn:hover:after,
+#pjAcceptCookieBar .pjAcceptCookieBarBtn:focus:after { right: 0; left: 0; }
+@media only screen and (max-width: 767px) {
+#pjAcceptCookieBar { padding: 15px 0; }
+#pjAcceptCookieBar .pjAcceptCookieBarShell { width: 96%; }
+#pjAcceptCookieBar p { font-size: 14px; }
+}
