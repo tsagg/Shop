@@ -3,6 +3,7 @@
 - Visual Studio
 - ASP.NET
 - .Net Framework >4.7.2
+- IIS Server (Идет в комплекте с ASP.NET)
 
 # Файл документации
 ~/Shop/Shop.xml
